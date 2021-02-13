@@ -12,8 +12,9 @@ namespace SalesCounter
         static void Main(string[] args)
         {
             var sales = new SalesCounter("sales.csv");
-            var amountPerStore = sales.GetPerStoreSales();
-            foreach (var obj in amountPerStore)
+            //var amountPerStore = sales.GetPerStoreSales();
+            var amountPerCategory = sales.GetPerCategorySales();
+            foreach (var obj in amountPerCategory)
             {
                 Console.WriteLine("{0}{1}", obj.Key, obj.Value);
             }

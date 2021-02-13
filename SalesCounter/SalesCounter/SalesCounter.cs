@@ -51,5 +51,22 @@ namespace SalesCounter
             }
             return dict;
         }
+
+        public IDictionary<string, int> GetPerCategorySales()
+        {
+            var dict = new SortedDictionary<string, int>();
+            foreach (var sales in _sales)
+            {
+                if (dict.ContainsKey(sales.ProductCategory))
+                {
+                    dict[sales.ProductCategory] += sales.Amount;
+                }
+                else
+                {
+                    dict[sales.ProductCategory] = sales.Amount;
+                }
+            }
+            return dict;
+        }
     }
 }
